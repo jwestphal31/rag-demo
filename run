@@ -2,16 +2,18 @@
 
 set -e
 
-nohup ollama serve &
-PID=$!
+echo "Starting app..."
+
+nohup ollama serve > /dev/null 2> /dev/null &
+OLLAMA_PID=$!
 
 while ! nc -z localhost 11434; do
   sleep 0.1  # wait for 1/10 of the second before check again
 done
 
 
-ollama pull phi3
+./venv/bin/python $0.py
 
 
-kill -INT $PID
+kill -INT $OLLAMA_PID
 wait
