@@ -14,5 +14,5 @@ while True:
         'content': prompt,
       },
     ])
-    print(response['message']['content'])
+    print("%s\n" % response['message']['content'])
 

@@ -27,8 +27,5 @@ COPY app2.py .
 COPY data.json .
 RUN ln -s run app2
 
-COPY app3.py .
-RUN ln -s run app3
-
 CMD ["/root/app/app1"]
 ENV PATH="$PATH:/root/app"
